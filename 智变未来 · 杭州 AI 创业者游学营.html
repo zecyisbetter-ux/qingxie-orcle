@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智变未来 · 杭州 AI 创业者游学营（日韩专场）</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif; 
+            line-height: 1.8; 
+            color: #1a1a1a;
+            background: #f5f5f5;
+        }
+        .container { max-width: 1200px; margin: 0 auto; background: #fff; }
+        
+        /* Hero Section - 现代简约风格 */
+        .hero { 
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%); 
+            color: white; 
+            padding: 100px 60px; 
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .hero-content { position: relative; z-index: 1; }
+        .hero h1 { font-size: 56px; margin-bottom: 15px; font-weight: 800; letter-spacing: -1px; }
+        .hero .subtitle { font-size: 24px; opacity: 0.95; margin-bottom: 30px; font-weight: 300; }
+        .hero .tagline { 
+            font-size: 18px; 
+            opacity: 0.9; 
+            font-style: italic; 
+            background: rgba(255,255,255,0.15);
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+        .hero .organizer { 
+            margin-top: 40px; 
+            font-size: 16px; 
+            opacity: 0.85;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        /* Section Styles */
+        .section { padding: 70px 60px; }
+        .section-title { 
+            font-size: 36px; 
+            color: #1e3c72; 
+            margin-bottom: 40px; 
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3c72, #7e22ce);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        /* Pain Points - 卡片式 */
+        .pain-points { background: white; }
+        .pain-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+        .pain-card { 
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); 
+            padding: 35px 25px; 
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .pain-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .pain-card .icon { font-size: 48px; margin-bottom: 20px; }
+        .pain-card h3 { color: #1e3c72; margin-bottom: 15px; font-size: 20px; font-weight: 600; }
+        .pain-card p { color: #666; font-size: 15px; line-height: 1.7; }
+        
+        /* Quote */
+        .quote { 
+            background: linear-gradient(135deg, #1e3c72 0%, #7e22ce 100%); 
+            color: white; 
+            padding: 40px 50px; 
+            margin: 0 60px;
+            border-radius: 16px;
+            text-align: center;
+            font-size: 18px;
+            font-style: italic;
+            box-shadow: 0 10px 30px rgba(30,60,114,0.2);
+        }
+        .quote strong { font-weight: 600; }
+        
+        /* Value Props - 大卡片 */
+        .value-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        .value-card { 
+            text-align: center; 
+            padding: 40px 25px; 
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+            border-color: #1e3c72;
+        }
+        .value-icon { font-size: 56px; margin-bottom: 20px; }
+        .value-card h3 { font-size: 22px; margin-bottom: 15px; color: #1e3c72; font-weight: 600; }
+        .value-card p { font-size: 15px; color: #666; line-height: 1.7; }
+        
+        /* Why Hangzhou - 数据展示 */
+        .why-hangzhou { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); }
+        .why-intro { text-align: center; font-size: 18px; max-width: 800px; margin: 0 auto 50px; color: #555; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+        .stat-card { 
+            background: white; 
+            padding: 35px 25px; 
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        .stat-number { font-size: 48px; font-weight: 800; color: #7e22ce; margin-bottom: 10px; }
+        .stat-label { font-size: 16px; color: #666; font-weight: 500; }
+        
+        /* Highlights - 深色背景 */
+        .highlights { 
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%); 
+            color: white;
+        }
+        .highlights .section-title { color: white; }
+        .highlights .section-title::after { background: rgba(255,255,255,0.3); }
+        .highlight-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+        .highlight-card { 
+            background: rgba(255,255,255,0.1); 
+            padding: 35px 25px; 
+            border-radius: 16px; 
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        .highlight-card:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
+        }
+        .highlight-card .icon { font-size: 42px; margin-bottom: 20px; }
+        .highlight-card h3 { font-size: 20px; margin-bottom: 20px; font-weight: 600; }
+        .highlight-card ul { list-style: none; }
+        .highlight-card li { 
+            padding: 10px 0; 
+            border-bottom: 1px solid rgba(255,255,255,0.15); 
+            font-size: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .highlight-card li::before {
+            content: '✓';
+            margin-right: 10px;
+            color: #4ade80;
+            font-weight: bold;
+        }
+        .highlight-card li:last-child { border-bottom: none; }
+        
+        /* Schedule - 时间轴风格 */
+        .schedule-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .schedule-item { 
+            display: flex; 
+            padding: 25px; 
+            background: white;
+            border-radius: 12px;
+            border-left: 5px solid #1e3c72;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+        .schedule-item:hover {
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            transform: translateX(5px);
+        }
+        .schedule-time { 
+            min-width: 130px; 
+            font-weight: 700; 
+            color: #7e22ce;
+            font-size: 16px;
+            padding-top: 3px;
+        }
+        .schedule-content h4 { font-size: 18px; margin-bottom: 10px; color: #1e3c72; font-weight: 600; }
+        .schedule-content p { font-size: 14px; color: #666; margin-bottom: 8px; line-height: 1.6; }
+        .schedule-highlight { 
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); 
+            padding: 5px 12px; 
+            border-radius: 6px; 
+            font-size: 13px; 
+            color: #92400e; 
+            font-weight: 500;
+            display: inline-block;
+        }
+        .schedule-highlight::before { content: '🔥 '; }
+        
+        /* Footer */
+        .footer { 
+            background: #1a1a1a; 
+            color: white; 
+            text-align: center; 
+            padding: 50px 60px; 
+            font-size: 15px;
+        }
+        .footer p { opacity: 0.8; margin-bottom: 10px; }
+        .footer .organizer { font-size: 16px; font-weight: 500; opacity: 1; margin-bottom: 20px; }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .pain-grid, .value-grid, .stats-grid, .highlight-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero h1 { font-size: 42px; }
+            .section { padding: 50px 40px; }
+        }
+        @media (max-width: 768px) {
+            .pain-grid, .value-grid, .stats-grid, .highlight-grid, .schedule-grid { grid-template-columns: 1fr; }
+            .hero { padding: 60px 30px; }
+            .hero h1 { font-size: 32px; }
+            .section { padding: 40px 25px; }
+            .schedule-item { flex-direction: column; }
+            .schedule-time { margin-bottom: 10px; }
+            .quote { margin: 0 25px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-content">
+                <h1>智变未来 · 杭州 AI 创业者游学营</h1>
+                <p class="subtitle">日韩青年创业者专场</p>
+                <p class="tagline">一天时间，找到你的 AI 破局点</p>
+                <div class="organizer">
+                    <strong>主办单位：</strong>HR 一号位
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pain Points -->
+        <div class="section pain-points">
+            <h2 class="section-title">你是否正在面临这些焦虑？</h2>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="icon">🤔</div>
+                    <h3>方向迷茫</h3>
+                    <p>AI 技术日新月异，不知道自己的企业该如何切入，怕错过风口，又怕选错方向。</p>
+                </div>
+                <div class="pain-card">
+                    <div class="icon">💰</div>
+                    <h3>资源匮乏</h3>
+                    <p>想找 AI 技术合作伙伴，但没有人脉渠道；想了解中国 AI 生态，但不知道从何入手。</p>
+                </div>
+                <div class="pain-card">
+                    <div class="icon">📚</div>
+                    <h3>方法缺失</h3>
+                    <p>知道 AI 很重要，但不知道如何落地；看过很多案例，但还是不知道从何做起。</p>
+                </div>
+                <div class="pain-card">
+                    <div class="icon">🌏</div>
+                    <h3>信息滞后</h3>
+                    <p>对中国 AI 发展的了解还停留在新闻层面，缺乏第一手信息和实地体验。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quote -->
+        <div class="quote">
+            <strong>如果以上任何一条戳中了你，那么这次游学就是为你设计的。</strong>
+        </div>
+        
+        <!-- Value Proposition -->
+        <div class="section">
+            <h2 class="section-title">这次游学，你能得到什么？</h2>
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-icon">👁️</div>
+                    <h3>看见</h3>
+                    <p>亲眼看到中国 AI 的真实发展水平，打破信息差，建立正确认知。</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🧠</div>
+                    <h3>理解</h3>
+                    <p>理解 AI 商业化的底层逻辑，找到可复制的方法论，避免走弯路。</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>连接</h3>
+                    <p>对接中国 AI 技术方、供应链、渠道资源，建立实质性合作。</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🚀</div>
+                    <h3>破局</h3>
+                    <p>找到适合你企业的 AI 落地切入点，带着方案回去，立刻行动。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Why Hangzhou -->
+        <div class="section why-hangzhou">
+            <h2 class="section-title">为什么是杭州？</h2>
+            <p class="why-intro">
+                如果说硅谷代表了过去 30 年的互联网时代，那么<strong>杭州正在定义未来 30 年的 AI 时代</strong>。
+            </p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">2000+</div>
+                    <div class="stat-label">AI 企业聚集</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2000 亿</div>
+                    <div class="stat-label">AI 产业规模</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10 万+</div>
+                    <div class="stat-label">AI 专业人才</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">NO.1</div>
+                    <div class="stat-label">数字经济渗透率</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Highlights -->
+        <div class="section highlights">
+            <h2 class="section-title">四大核心亮点，别处体验不到</h2>
+            <div class="highlight-grid">
+                <div class="highlight-card">
+                    <div class="icon">🔥</div>
+                    <h3>最新首发</h3>
+                    <ul>
+                        <li>悟空平台（2025 年 3 月全球首发）</li>
+                        <li>工业机器人大秀（2025 年新品）</li>
+                        <li>脑机接口（亚残运会"机械飞人"技术）</li>
+                    </ul>
+                </div>
+                <div class="highlight-card">
+                    <div class="icon">🎯</div>
+                    <h3>深度体验</h3>
+                    <ul>
+                        <li>不是走马观花，每家企业都有产品演示</li>
+                        <li>亲手操控机器人、体验意念控制</li>
+                        <li>与技术创始人面对面交流</li>
+                    </ul>
+                </div>
+                <div class="highlight-card">
+                    <div class="icon">💡</div>
+                    <h3>实战导向</h3>
+                    <ul>
+                        <li>学习 AI 落地的真实案例和方法</li>
+                        <li>创业者圆桌会，分享创业经验</li>
+                        <li>对接可合作的技术和产品</li>
+                    </ul>
+                </div>
+                <div class="highlight-card">
+                    <div class="icon">🌏</div>
+                    <h3>跨境机遇</h3>
+                    <ul>
+                        <li>发现中日韩跨境合作机会</li>
+                        <li>了解中国 AI 出海策略</li>
+                        <li>建立国际化人脉网络</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Schedule -->
+        <div class="section">
+            <h2 class="section-title">一天行程，精华浓缩</h2>
+            <div class="schedule-grid">
+                <div class="schedule-item">
+                    <div class="schedule-time">09:00-10:30</div>
+                    <div class="schedule-content">
+                        <h4>📍 未来科技城城市规划馆</h4>
+                        <p>杭州 AI 产业全景图，"杭州六小龙"首次集中亮相</p>
+                        <span class="schedule-highlight">杭州六小龙展示区</span>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">10:30-12:00</div>
+                    <div class="schedule-content">
+                        <h4>📍 阿里巴巴西溪园区</h4>
+                        <p>走进阿里全球总部，体验通义千问、悟空平台</p>
+                        <span class="schedule-highlight">悟空平台全球首发演示</span>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">12:00-13:30</div>
+                    <div class="schedule-content">
+                        <h4>🍽️ 午餐 + 自由交流</h4>
+                        <p>体验阿里武侠文化，创业者自由交流</p>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">13:30-15:00</div>
+                    <div class="schedule-content">
+                        <h4>📍 申昊科技</h4>
+                        <p>深度参访工业 AI 实战，看机器人如何守护电网安全</p>
+                        <span class="schedule-highlight">工业机器人现场演示</span>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">15:00-16:30</div>
+                    <div class="schedule-content">
+                        <h4>📍 强脑科技 BrainCo</h4>
+                        <p>体验脑机接口黑科技，参与创业者圆桌会</p>
+                        <span class="schedule-highlight">意念之手体验 + 创业经验分享</span>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-time">16:30-17:00</div>
+                    <div class="schedule-content">
+                        <h4>🎓 结营仪式</h4>
+                        <p>颁发证书、创业者闪电演讲、资源对接</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p class="organizer"><strong>主办单位：</strong>HR 一号位</p>
+            <p>© 2026 智变未来 · 杭州 AI 创业者游学营（日韩专场）</p>
+            <p style="margin-top: 15px; opacity: 0.6; font-size: 13px;">本方案仅供参考，具体行程以实际安排为准</p>
+        </div>
+    </div>
+</body>
+</html>
